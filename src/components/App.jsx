@@ -24,23 +24,24 @@ export class App extends Component {
     // pozytywne odpowiedzi dzielone na wszystkie x 100, zeby wyszedl procent
   }
 
-  handleLeaveFeedback = e => {
-   const {name} = e.target;
-   this.setState(state => ({ [name]: state[name] + 1 }));
-  };
+handleLeaveFeedback = name => {
+this.setState(state => ({ [name]: state[name] + 1 }));
+};
 
 
   render() {
     const { good, neutral, bad } = this.state;
+    //  destrukturyzacja stanu komponentu
     const total = this.countTotalFeedback();
     const positiveFeedback = this.countPositiveFeedbackPercentage();
+    // wywołanie metod pomocniczych 
     return (
       <>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={this.state}
-            onLeaveFeedback={this.handleLeaveFeedback} 
-            />
+            options={Object.keys(this.state)}
+             onLeaveFeedback={this.handleLeaveFeedback}
+/>
             { total === 0 ? (
               <Notification message="There is no feedback"></Notification>) : (
               <Statistics

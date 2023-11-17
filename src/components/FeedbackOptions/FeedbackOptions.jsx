@@ -20,3 +20,5 @@ FeedbackOptions.propTypes = {
 };
 
 export default FeedbackOptions;
+
+// moliwość uzycia return  w co wkładam div, ale mona zrobic bez, zeby bylo mniej rozbudowane
